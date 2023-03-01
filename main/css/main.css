@@ -1,0 +1,66 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", cursive;
+  color: #A4A4A6;
+  font-size: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #A4A4A6;
+}
+
+body {
+  background-color: #1F2024;
+  font-size: 1.5rem;
+}
+
+h1 {
+  padding: 1rem;
+  width: 100vw;
+  color: #2BD988;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: calc(100vh - 8.5rem);
+}
+
+.game-board {
+  display: grid;
+  grid-template-rows: repeat(51, 1fr);
+  grid-template-columns: repeat(51, 1fr);
+  width: calc(100vh - 9.5rem);
+  height: calc(100vh - 9.5rem);
+  border: 0.5rem solid #F2E30C;
+  border-radius: 1rem;
+}
+
+.snake {
+  background-color: #F22E2E;
+  border: 0.1rem solid #A4A4A6;
+}
+
+.point {
+  background-color: #F2A20C;
+  border: 0.1rem solid #A4A4A6;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+}
+
+a:hover {
+  color: #2BD988;
+}
