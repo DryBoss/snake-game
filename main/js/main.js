@@ -1,4 +1,4 @@
-import { drawSnakeBodyOn as drawSnakeOn, updateSnakeBodyParts as updateSnake } from "./snake.js"
+import { gameStatus, drawSnakeBodyOn as drawSnakeOn, updateSnakeBodyParts as updateSnake } from "./snake.js"
 import { generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
 import { snakeDirection } from "./control.js"
 
@@ -6,8 +6,7 @@ import { snakeDirection } from "./control.js"
 export const gameBoard = document.querySelector(".game-board");
 
 //game variables
-let snakeSpeed = 5;
-/**/
+let snakeSpeed = 2;
 
 //default
 generatePointBox();
@@ -20,4 +19,14 @@ function updateGame () {
   updateSnake(snakeDirection, gameBoard.innerHTML = "");
   drawSnakeOn(gameBoard);
   drawPointOn(gameBoard);
+  gameStatusListener(gameStatus);
 };
+
+function gameStatusListener (gameStatus) {
+  switch (gameStatus) {
+    case "over" :
+      alert("Game Over Baby")
+      break;
+  }
+};
+

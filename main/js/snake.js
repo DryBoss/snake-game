@@ -2,7 +2,8 @@ import { gameBoard } from "./main.js"
 import { pointPosition, generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
 
 //game variables
-let snakeBody = [
+export let gameStatus = "active";
+export let snakeBody = [
   {x: 26, y: 26},
   {x: 25, y: 26},
   {x: 24, y: 26}
@@ -32,10 +33,23 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
       break;
   }
 
-  //checking head if it has consumed any point box
+  //checking head if it has consumed any point box. if yes, generating new point & expanding snake body
   if (snakeBody[0].x === pointPosition.x && snakeBody[0].y === pointPosition.y) {
     generatePointBox();
     drawPointOn(gameBoard);
+
+    //expanding snake body
+    snakeBody.push({ ...snakeBody[snakeBody.length - 1]})
+  }
+
+  //checking head if it has touched it self or the box. if yes, game over
+  if (
+    snakeBody[0].x < 1 ||
+    snakeBody[0].x > 51 ||
+    snakeBody[0].y < 1 ||
+    snakeBody[0].y > 51
+  ) {
+    gameStatus = "over"
   }
 }
 
