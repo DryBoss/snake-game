@@ -41,7 +41,7 @@ h1 {
   grid-template-columns: repeat(51, 1fr);
   width: calc(100vh - 9.5rem);
   height: calc(100vh - 9.5rem);
-  border: 0.5rem solid #F2E30C;
+  border: 0.5rem dotted #F2E30C;
   border-radius: 1rem;
 }
 

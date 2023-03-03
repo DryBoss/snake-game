@@ -1,6 +1,7 @@
 //game variables
 export let snakeDirection = "right";
 
+//change snake direction according pressed keys
 window.addEventListener("keydown", event => {
   switch (event.key) {
     case "ArrowUp":

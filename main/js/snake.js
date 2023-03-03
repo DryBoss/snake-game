@@ -1,3 +1,6 @@
+import { gameBoard } from "./main.js"
+import { pointPosition, generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
+
 //game variables
 let snakeBody = [
   {x: 26, y: 26},
@@ -27,6 +30,12 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
     case "down" :
       snakeBody[0].y += 1;
       break;
+  }
+
+  //checking head if it has consumed any point box
+  if (snakeBody[0].x === pointPosition.x && snakeBody[0].y === pointPosition.y) {
+    generatePointBox();
+    drawPointOn(gameBoard);
   }
 }
 
