@@ -55,6 +55,69 @@ h1 {
   border: 0.1rem solid #A4A4A6;
 }
 
+button {
+  padding: 1rem;
+  color: #A4A4A6;
+  background-color: transparent;
+  border: 0.2rem solid #A4A4A6;
+  border-radius: 1rem;
+}
+
+button:hover {
+  border-color: #2BD988;
+}
+
+#up:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/collapse-arrow.png");
+}
+
+#left:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/back.png");
+}
+
+#right:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/forward--v1.png");
+}
+
+#down:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/expand-arrow--v1.png");
+}
+
+button img {
+  width: 50%;
+}
+
+.difficulty {
+  display: flex;
+}
+
+.choose {
+  display: flex;
+  flex-direction: column;
+}
+
+.control {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+#up {
+  grid-column-start: 2;
+}
+
+#left {
+  grid-row-start: 2;
+}
+
+#play {
+  grid-column-start: 2;
+}
+
+#down {
+  grid-column-start: 2;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
