@@ -7,7 +7,7 @@ export const gameBoard = document.querySelector(".game-board");
 
 //game variables
 export let universalStatus = "pause";
-let snakeSpeed = 2;
+let snakeSpeed = 10;
 
 //default
 generatePointBox();

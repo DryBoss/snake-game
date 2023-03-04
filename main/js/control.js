@@ -1,5 +1,6 @@
-import { universalStatus } from "./main.js";
-import { snakeStatus } from "./snake.js";
+import { universalStatus, gameBoard } from "./main.js";
+import { snakeStatus, restartSnake, drawSnakeBodyOn as drawSnakeOn } from "./snake.js";
+import { generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
 
 //game variables
 export let gameStatus = "resume"
@@ -35,8 +36,15 @@ window.addEventListener("keydown", event => {
     case " ":
       if (universalStatus === "resumed") {
         gameStatus = "pause"
+      } else if (universalStatus === "paused") {
+        gameStatus = "resume"
       } else {
         gameStatus = "resume"
+        restartSnake();
+        snakeDirection = "right"
+        generatePointBox();
+        drawSnakeOn(gameBoard);
+        drawPointOn(gameBoard);
       }
   }
 })

@@ -9,6 +9,15 @@ export let snakeBody = [
   {x: 24, y: 26}
 ]
 
+export function restartSnake() {
+  snakeStatus = "alive";
+  snakeBody = [
+    {x: 26, y: 26},
+    {x: 25, y: 26},
+    {x: 24, y: 26}
+  ]
+}
+
 export function updateSnakeBodyParts (snakeMovementDirection) {
   //body parts following each other
   for (
