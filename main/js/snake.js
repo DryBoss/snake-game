@@ -2,7 +2,7 @@ import { gameBoard } from "./main.js"
 import { pointPosition, generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
 
 //game variables
-export let gameStatus = "active";
+export let snakeStatus = "alive";
 export let snakeBody = [
   {x: 26, y: 26},
   {x: 25, y: 26},
@@ -11,10 +11,13 @@ export let snakeBody = [
 
 export function updateSnakeBodyParts (snakeMovementDirection) {
   //body parts following each other
-  for (let snakeBodyPartIndex = snakeBody.length - 2 /*to catch the 2nd last body part*/; 
-  snakeBodyPartIndex >= 0 /*to avoid head*/; 
-  snakeBodyPartIndex-- /*to catch all body parts from backward (except head)*/) {
-    snakeBody[snakeBodyPartIndex + 1] = { ...snakeBody[snakeBodyPartIndex] }; /*moving snake forward by shifting body part of one index to it's previous index*/
+  for (
+    let snakeBodyPartIndex = snakeBody.length - 2; //to catch the 2nd last body part
+    snakeBodyPartIndex >= 0; //to avoid head 
+    snakeBodyPartIndex-- //to catch all body parts from backward (except head)
+    ) {
+      //moving snake forward by shifting body part of one index to it's previous index
+      snakeBody[snakeBodyPartIndex + 1] = { ...snakeBody[snakeBodyPartIndex] };
   }
 
   //head going for a new location as user intended
@@ -44,12 +47,22 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
 
   //checking head if it has touched it self or the box. if yes, game over
   if (
+    //checking for box touch
     snakeBody[0].x < 1 ||
     snakeBody[0].x > 51 ||
     snakeBody[0].y < 1 ||
-    snakeBody[0].y > 51
+    snakeBody[0].y > 51 ||
+
+    //checking for self touch
+    (
+      snakeBody.some((bodyPart, index) => {
+        if (index !== 0) {
+          return snakeBody[0].x === bodyPart.x && snakeBody[0].y === bodyPart.y
+        }
+      })
+    )
   ) {
-    gameStatus = "over"
+    snakeStatus = "dead"
   }
 }
 
