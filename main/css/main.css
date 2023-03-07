@@ -39,6 +39,7 @@ h1 {
   display: grid;
   grid-template-rows: repeat(51, 1fr);
   grid-template-columns: repeat(51, 1fr);
+  margin: 0 2rem;
   width: calc(100vh - 9.5rem);
   height: calc(100vh - 9.5rem);
   border: 0.5rem solid #F2E30C;
@@ -55,15 +56,26 @@ h1 {
   border: 0.1rem solid #A4A4A6;
 }
 
+.game-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 2rem;
+}
+
 button {
-  padding: 1rem;
+  padding: 1rem 2rem;
   color: #A4A4A6;
   background-color: transparent;
   border: 0.2rem solid #A4A4A6;
   border-radius: 1rem;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
 }
 
 button:hover {
+  color: #2BD988;
   border-color: #2BD988;
 }
 
@@ -84,22 +96,49 @@ button:hover {
 }
 
 button img {
-  width: 50%;
+  height: 100%;
+}
+
+.help {
+  font-size: 1rem;
+  line-height: 2rem;
 }
 
 .difficulty {
   display: flex;
+  align-items: center;
+  height: 120px;
 }
 
 .choose {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  margin-right: 2rem;
+  height: 120px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 120px;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
 }
 
 .control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  width: 250px;
+  height: 190px;
+  gap: 5px;
+}
+
+.control button {
+  width: 80px;
+  height: 60px;
 }
 
 #up {
@@ -126,4 +165,47 @@ footer {
 
 a:hover {
   color: #2BD988;
+}
+
+@media screen and (max-width: 1023px) {
+  .help {
+    display: none;
+  }
+}
+@media screen and (max-width: 800px) {
+  .body {
+    flex-direction: column;
+  }
+  button {
+    padding: 1rem 2rem;
+  }
+  .difficulty {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  .choose {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-right: 0;
+    width: 100%;
+    height: auto;
+  }
+  .score {
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .control {
+    width: 190px;
+    height: 130px;
+  }
+  .control button {
+    width: 60px;
+    height: 40px;
+  }
 }
