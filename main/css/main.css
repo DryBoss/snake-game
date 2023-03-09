@@ -15,36 +15,46 @@ a {
   color: #A4A4A6;
 }
 
+button {
+  color: #A4A4A6;
+  background-color: transparent;
+  border: 2px solid #A4A4A6;
+  border-radius: 10px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1rem;
+}
+
+button:hover {
+  color: #2BD988;
+  border-color: #2BD988;
+}
+
 body {
-  height: 100vh;
   background-color: #1F2024;
-  font-size: 1.5rem;
 }
 
 h1 {
   padding: 1rem;
   width: 100vw;
   color: #2BD988;
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
 }
 
 .body {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  width: 100vw;
-  height: calc(100vh - 8.5rem);
+  height: calc(100vh - 70px);
 }
 
 .game-board {
   display: grid;
   grid-template-rows: repeat(51, 1fr);
   grid-template-columns: repeat(51, 1fr);
-  margin: 0 2rem;
-  width: calc(100vh - 9.5rem);
-  height: calc(100vh - 9.5rem);
+  width: 100vw;
+  height: 100vw;
   border: 0.5rem solid #F2E30C;
-  border-radius: 1rem;
 }
 
 .snake-body-part {
@@ -62,84 +72,46 @@ h1 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 0 2rem;
-}
-
-button {
-  padding: 1rem 2rem;
-  color: #A4A4A6;
-  background-color: transparent;
-  border: 0.2rem solid #A4A4A6;
-  border-radius: 1rem;
-  font-family: "Press Start 2P", cursive;
-  font-size: 1rem;
-}
-
-button:hover {
-  color: #2BD988;
-  border-color: #2BD988;
-}
-
-#up:hover img {
-  content: url("https://img.icons8.com/ios-filled/50/2BD988/collapse-arrow.png");
-}
-
-#left:hover img {
-  content: url("https://img.icons8.com/ios-filled/50/2BD988/back.png");
-}
-
-#right:hover img {
-  content: url("https://img.icons8.com/ios-filled/50/2BD988/forward--v1.png");
-}
-
-#down:hover img {
-  content: url("https://img.icons8.com/ios-filled/50/2BD988/expand-arrow--v1.png");
-}
-
-button img {
-  height: 100%;
 }
 
 .help {
-  font-size: 1rem;
-  line-height: 2rem;
-}
-
-.difficulty {
-  display: flex;
-  align-items: center;
-  height: 120px;
-}
-
-.choose {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-right: 2rem;
-  height: 120px;
+  display: none;
 }
 
 .score {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-  height: 120px;
-  font-size: 1.5rem;
-  line-height: 2.5rem;
+  margin: 10px 0;
+  width: 100vw;
+}
+
+.br {
+  display: none;
+}
+
+.choose {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100vw;
+}
+
+.choose button {
+  padding: 5px 10px;
 }
 
 .control {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  width: 250px;
-  height: 190px;
   gap: 5px;
+  margin: 10px 0;
 }
 
 .control button {
-  width: 80px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
 }
 
 #up {
@@ -158,79 +130,32 @@ button img {
   grid-column-start: 2;
 }
 
+button img {
+  width: 80%;
+}
+
+#up:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/collapse-arrow.png");
+}
+
+#left:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/back.png");
+}
+
+#right:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/forward--v1.png");
+}
+
+#down:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/expand-arrow--v1.png");
+}
+
 footer {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 3rem;
+  padding: 1rem;
 }
 
 a:hover {
   color: #2BD988;
-}
-
-@media screen and (max-width: 1023px) {
-  .help {
-    display: none;
-  }
-}
-@media screen and (max-width: 800px) {
-  .body {
-    flex-direction: column;
-    align-items: center;
-  }
-  .game-board {
-    width: calc(100vh - 320px);
-    height: calc(100vh - 320px);
-  }
-  button {
-    padding: 1rem 2rem;
-  }
-  .game-control {
-    width: 100%;
-  }
-  .difficulty {
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-  }
-  .choose {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 1rem 0;
-    width: 100%;
-    height: auto;
-  }
-  .score {
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 100%;
-    height: auto;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-  .control {
-    margin: 1rem 0;
-    width: 190px;
-    height: 130px;
-  }
-  .control button {
-    width: 60px;
-    height: 40px;
-  }
-}
-@media screen and (max-width: 500px) {
-  html {
-    font-size: 8px;
-  }
-}
-@media screen and (max-width: 400px) {
-  html {
-    font-size: 6px;
-  }
-}
-@media screen and (max-width: 300px) {
-  html {
-    font-size: 5px;
-  }
 }
