@@ -1,6 +1,6 @@
 import { snakeStatus, drawSnakeBodyOn as drawSnakeOn, updateSnakeBodyParts as updateSnake } from "./snake.js"
 import { generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
-import { gameStatus, snakeDirection } from "./control.js"
+import { gameStatus, snakeDirection, snakeGo } from "./control.js"
 
 //element variables
 export const gameBoard = document.querySelector(".game-board");
@@ -30,4 +30,6 @@ function updateGame () {
     drawPointOn(gameBoard);
   }
 };
+
+snakeGo();
 
