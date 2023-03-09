@@ -45,7 +45,8 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 70px); /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100 - 70px);
 }
 
 .game-board {
@@ -54,17 +55,17 @@ h1 {
   grid-template-columns: repeat(51, 1fr);
   width: 100vw;
   height: 100vw;
-  border: 0.5rem solid #F2E30C;
+  border: 5px solid #F2E30C;
 }
 
 .snake-body-part {
   background-color: #F22E2E;
-  border: 0.1rem solid #A4A4A6;
+  border: 1px solid #A4A4A6;
 }
 
 .point {
   background-color: #F2A20C;
-  border: 0.1rem solid #A4A4A6;
+  border: 1px solid #A4A4A6;
 }
 
 .game-control {
@@ -80,7 +81,6 @@ h1 {
 
 .score {
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   margin: 10px 0;
   width: 100vw;
@@ -92,7 +92,6 @@ h1 {
 
 .choose {
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   width: 100vw;
 }
@@ -158,4 +157,40 @@ footer {
 
 a:hover {
   color: #2BD988;
+}
+
+@media screen and (min-width: 1024px) {
+  .body {
+    flex-direction: row;
+  }
+  .game-board {
+    width: calc(100vh - 75px);
+    height: calc(100vh - 75px);
+  }
+  .help {
+    display: block;
+    line-height: 2rem;
+  }
+  .difficulty {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .score {
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 0 10px;
+    width: fit-content;
+  }
+  .br {
+    display: inline;
+  }
+  .choose {
+    flex-direction: column;
+    width: fit-content;
+  }
+  .choose button {
+    margin: 5px;
+  }
 }

@@ -50,7 +50,8 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 70px); /* Fallback for browsers that do not support Custom Properties */
+  height: calc((var(--vh, 1vh) * 100) - 70px);
 }
 
 //game board
@@ -60,15 +61,15 @@ h1 {
   grid-template-columns: repeat(51, 1fr);
   width: 100vw;
   height: 100vw;
-  border: .5rem solid #F2E30C;
+  border: 5px solid #F2E30C;
 }
 .snake-body-part {
   background-color: #F22E2E;
-  border: .1rem solid $text;
+  border: 1px solid $text;
 }
 .point {
   background-color: #F2A20C;
-  border: .1rem solid $text;
+  border: 1px solid $text;
 }
 
 //game control
@@ -89,11 +90,11 @@ h1 {
     //score
     .score {
       display: flex;
-      flex-direction: row;
       justify-content: space-evenly;
       margin: 10px 0;
       width: 100vw;
     }
+
     .br {
       display: none;
     }
@@ -101,7 +102,6 @@ h1 {
     //choose
     .choose {
       display: flex;
-      flex-direction: row;
       justify-content: space-evenly;
       width: 100vw;
     }
@@ -160,3 +160,58 @@ a:hover {
 }
 
 //responsive
+@media screen and (min-width: 500px) {
+  
+}
+
+//PC responsive
+@media screen and (min-width: 1024px) {
+  //body
+  .body {
+    flex-direction: row;
+  }
+
+  //game board
+  .game-board {
+    width: calc(100vh - 75px);
+    height: calc(100vh - 75px);
+  }
+
+  //game control
+
+    //help
+    .help {
+      display: block;
+      line-height: 2rem;
+    }
+
+    //difficulty
+    .difficulty {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+      //score
+      .score {
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0 10px;
+        width: fit-content;
+      }
+      
+      .br {
+        display: inline;
+      }
+
+      //choose
+      .choose {
+        flex-direction: column;
+        width: fit-content;
+      }
+
+      .choose button {
+        margin: 5px;
+      }
+}
