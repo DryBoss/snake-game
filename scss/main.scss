@@ -50,8 +50,8 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: calc(100vh - 70px); /* Fallback for browsers that do not support Custom Properties */
-  height: calc((var(--vh, 1vh) * 100) - 70px);
+  height: calc(100vh - 70px); //Fallback for browsers that do not support Custom Properties
+  height: calc(var(--vh, 1vh) * 100 - 70px);
 }
 
 //game board
@@ -161,7 +161,7 @@ a:hover {
 
 //responsive
 @media screen and (min-width: 500px) {
-  
+
 }
 
 //PC responsive
