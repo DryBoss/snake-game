@@ -1,9 +1,11 @@
 import { universalStatus, gameBoard } from "./main.js";
 import { snakeStatus, restartSnake, drawSnakeBodyOn as drawSnakeOn } from "./snake.js";
 import { generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
+import { generateObstaclesFor } from "./obstacle.js";
 
 //game variables
-export let gameStatus = "resume"
+export let gameStatus = "resume";
+export let gameDifficulty = "easy";
 export let snakeDirection = "right";
 
 //button variables
@@ -13,7 +15,15 @@ export const rightButton = document.querySelector("#right");
 const downButton = document.querySelector("#down");
 export const playButton = document.querySelector("#play");
 const allControlButtons = document.querySelectorAll(".control button");
+export const easyButton = document.querySelector("#easy");
+const mediumButton = document.querySelector("#medium");
+const hardButton = document.querySelector("#hard");
 const allDifficultyButtons = document.querySelectorAll(".difficulty button");
+
+//change game difficulty according pressed buttons
+easyButton.addEventListener('click', () => snakeDifficultyChange("easy"));
+mediumButton.addEventListener('click', () => snakeDifficultyChange("medium"));
+hardButton.addEventListener('click', () => snakeDifficultyChange("hard"));
 
 //change snake direction according pressed buttons
 upButton.addEventListener('click', () => snakeDirectionChange("up"));
@@ -46,6 +56,45 @@ window.addEventListener("keydown", event => {
       break;
   }
 })
+
+//difficulty change functiion
+function snakeDifficultyChange (difficulty) {
+  switch (difficulty) {
+    case "easy":
+      if (gameDifficulty !== "easy") {
+        gameDifficulty = "easy"
+        removeSelectedFrom("difficulty");
+        easyButton.classList.add("selected");
+        restartSnake();
+        generatePointBox();
+        drawPointOn(gameBoard);
+        generateObstaclesFor(gameDifficulty);
+      }
+      break;
+    case "medium":
+      if (gameDifficulty !== "medium") {
+        gameDifficulty = "medium"
+        removeSelectedFrom("difficulty");
+        mediumButton.classList.add("selected");
+        restartSnake();
+        generatePointBox();
+        drawPointOn(gameBoard);
+        generateObstaclesFor(gameDifficulty);
+      }
+      break;
+    case "hard":
+      if (gameDifficulty !== "hard") {
+        gameDifficulty = "hard"
+        removeSelectedFrom("difficulty");
+        hardButton.classList.add("selected");
+        restartSnake();
+        generatePointBox();
+        drawPointOn(gameBoard);
+        generateObstaclesFor(gameDifficulty);
+      }
+      break;
+  }
+} 
 
 //direction change functions
 function snakeDirectionChange (direction) {

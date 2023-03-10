@@ -1,6 +1,6 @@
 import { gameBoard } from "./main.js"
 import { pointPosition, generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
-import { playButton } from "./control.js"
+import { playButton, gameDifficulty } from "./control.js"
 
 //game variables
 export let snakeStatus = "alive";
@@ -75,6 +75,20 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
     snakeStatus = "dead"
     playButton.classList.add("reset");
     playButton.classList.remove("pause");
+  }
+
+  //checking head if it has touched any obstacles. if yes, game over
+  if (
+    (
+      gameDifficulty === "medium" &&
+      (
+        true
+      )
+    ) || (
+      gameDifficulty === "hard"
+    )
+  ) {
+    
   }
 }
 

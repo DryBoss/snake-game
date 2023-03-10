@@ -71,7 +71,9 @@ h1 {
   background-color: #F2A20C;
   border: 1px solid $text;
 }
-
+.obstacle {
+  background-color: #F2E30C;
+}
 //game control
 .game-control {
   display: flex;
@@ -168,8 +170,12 @@ h1 {
   }
 
   .selected {
-    border-color: $hover;
+    color: $background;
     background-color: $hover;
+    border-color: $hover;
+  }
+  .selected:hover {
+    color: $background;
   }
   .selected#up img {
     content: url("https://img.icons8.com/ios-filled/50/1F2024/collapse-arrow.png");

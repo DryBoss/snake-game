@@ -68,6 +68,10 @@ h1 {
   border: 1px solid #A4A4A6;
 }
 
+.obstacle {
+  background-color: #F2E30C;
+}
+
 .game-control {
   display: flex;
   flex-direction: column;
@@ -174,8 +178,13 @@ button img {
 }
 
 .selected {
-  border-color: #2BD988;
+  color: #1F2024;
   background-color: #2BD988;
+  border-color: #2BD988;
+}
+
+.selected:hover {
+  color: #1F2024;
 }
 
 .selected#up img {
