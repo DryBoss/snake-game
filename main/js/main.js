@@ -7,22 +7,20 @@ export const gameBoard = document.querySelector(".game-board");
 
 //game variables
 export let universalStatus = "pause";
-let snakeSpeed = 10;
+let snakeSpeed = 5;
 
 //default
 generatePointBox();
 drawSnakeOn(gameBoard);
 drawPointOn(gameBoard);
 
-setInterval(updateGame, 500/snakeSpeed);
+setInterval(updateGame, 1000/snakeSpeed);
 
 function updateGame () {
   if (gameStatus === "pause") {
     universalStatus = "paused";
   } else if (snakeStatus === "dead") {
     universalStatus = "restart"
-  } else if (gameStatus === "resume" && snakeStatus === "dead") {
-    
   } else {
     universalStatus = "resumed"
     updateSnake(snakeDirection, gameBoard.innerHTML = "");

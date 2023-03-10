@@ -149,6 +149,35 @@ h1 {
     content: url("https://img.icons8.com/ios-filled/50/2BD988/expand-arrow--v1.png");
   }
 
+  .selected {
+    border-color: $hover;
+    background-color: $hover;
+  }
+  .selected#up img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/collapse-arrow.png");
+  }
+  .selected#up:hover img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/collapse-arrow.png");
+  }
+  .selected#left img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/back.png");
+  }
+  .selected#left:hover img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/back.png");
+  }
+  .selected#right img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/forward--v1.png");
+  }
+  .selected#right:hover img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/forward--v1.png");
+  }
+  .selected#down img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/expand-arrow--v1.png");
+  }
+  .selected#down:hover img {
+    content: url("https://img.icons8.com/ios-filled/50/1F2024/expand-arrow--v1.png");
+  }
+
 //footer
 footer {
   display: flex;
