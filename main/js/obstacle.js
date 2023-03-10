@@ -3,7 +3,7 @@ export let obstacles = [];
 export function generateObstaclesFor (difficulty) {
   if (difficulty === "medium") {
     obstacles = [
-      //horizontal 1
+      //corner 1
       {x: 11, y: 11},
       {x: 12, y: 11},
       {x: 13, y: 11},
@@ -14,7 +14,6 @@ export function generateObstaclesFor (difficulty) {
       {x: 18, y: 11},
       {x: 19, y: 11},
       {x: 20, y: 11},
-      //vertical 1
       {x: 11, y: 12},
       {x: 11, y: 13},
       {x: 11, y: 14},
@@ -24,7 +23,7 @@ export function generateObstaclesFor (difficulty) {
       {x: 11, y: 18},
       {x: 11, y: 19},
       {x: 11, y: 20},
-      //horizontal 2
+      //corner 2
       {x: 31, y: 11},
       {x: 32, y: 11},
       {x: 33, y: 11},
@@ -35,7 +34,6 @@ export function generateObstaclesFor (difficulty) {
       {x: 38, y: 11},
       {x: 39, y: 11},
       {x: 40, y: 11},
-      //vertical 2
       {x: 40, y: 12},
       {x: 40, y: 13},
       {x: 40, y: 14},
@@ -45,7 +43,7 @@ export function generateObstaclesFor (difficulty) {
       {x: 40, y: 18},
       {x: 40, y: 19},
       {x: 40, y: 20},
-      //horizontal 3
+      //corner 3
       {x: 11, y: 31},
       {x: 11, y: 32},
       {x: 11, y: 33},
@@ -56,7 +54,6 @@ export function generateObstaclesFor (difficulty) {
       {x: 11, y: 38},
       {x: 11, y: 39},
       {x: 11, y: 40},
-      //vertical 3
       {x: 12, y: 40},
       {x: 13, y: 40},
       {x: 14, y: 40},
@@ -66,7 +63,7 @@ export function generateObstaclesFor (difficulty) {
       {x: 18, y: 40},
       {x: 19, y: 40},
       {x: 20, y: 40},
-      //horizontal 4
+      //corner 4
       {x: 40, y: 31},
       {x: 40, y: 32},
       {x: 40, y: 33},
@@ -77,7 +74,6 @@ export function generateObstaclesFor (difficulty) {
       {x: 40, y: 38},
       {x: 40, y: 39},
       {x: 40, y: 40},
-      //vertical 4
       {x: 31, y: 40},
       {x: 32, y: 40},
       {x: 33, y: 40},
@@ -87,9 +83,94 @@ export function generateObstaclesFor (difficulty) {
       {x: 37, y: 40},
       {x: 38, y: 40},
       {x: 39, y: 40},
+      //horizontal 1
+      {x: 21, y:20},
+      {x: 22, y:20},
+      {x: 23, y:20},
+      {x: 24, y:20},
+      {x: 25, y:20},
+      {x: 26, y:20},
+      {x: 27, y:20},
+      {x: 28, y:20},
+      {x: 29, y:20},
+      {x: 30, y:20},
+      //horizontal 2
+      {x: 21, y:31},
+      {x: 22, y:31},
+      {x: 23, y:31},
+      {x: 24, y:31},
+      {x: 25, y:31},
+      {x: 26, y:31},
+      {x: 27, y:31},
+      {x: 28, y:31},
+      {x: 29, y:31},
+      {x: 30, y:31}
     ];
   } else if (difficulty === "hard") {
-    obstacles = [];
+    obstacles = [
+      //corner 1
+      {x: 16, y:16},
+      {x: 17, y:16},
+      {x: 18, y:16},
+      {x: 19, y:16},
+      {x: 20, y:16},
+      {x: 16, y:17},
+      {x: 16, y:18},
+      {x: 16, y:19},
+      {x: 16, y:20},
+      //corner 2
+      {x: 31, y:16},
+      {x: 32, y:16},
+      {x: 33, y:16},
+      {x: 34, y:16},
+      {x: 35, y:16},
+      {x: 35, y:17},
+      {x: 35, y:18},
+      {x: 35, y:19},
+      {x: 35, y:20},
+      //corner 3
+      {x: 16, y:35},
+      {x: 17, y:35},
+      {x: 18, y:35},
+      {x: 19, y:35},
+      {x: 20, y:35},
+      {x: 16, y:31},
+      {x: 16, y:32},
+      {x: 16, y:33},
+      {x: 16, y:34},
+      //corner 4
+      {x: 31, y:35},
+      {x: 32, y:35},
+      {x: 33, y:35},
+      {x: 34, y:35},
+      {x: 35, y:35},
+      {x: 35, y:31},
+      {x: 35, y:32},
+      {x: 35, y:33},
+      {x: 35, y:34},
+      //horizontal 1
+      {x: 21, y:23},
+      {x: 22, y:23},
+      {x: 23, y:23},
+      {x: 24, y:23},
+      {x: 25, y:23},
+      {x: 26, y:23},
+      {x: 27, y:23},
+      {x: 28, y:23},
+      {x: 29, y:23},
+      {x: 30, y:23},
+      //horizontal 2
+      {x: 21, y:28},
+      {x: 22, y:28},
+      {x: 23, y:28},
+      {x: 24, y:28},
+      {x: 25, y:28},
+      {x: 26, y:28},
+      {x: 27, y:28},
+      {x: 28, y:28},
+      {x: 29, y:28},
+      {x: 30, y:28}
+    ];
   } else {
     obstacles = [];
   }
