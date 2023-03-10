@@ -1,7 +1,7 @@
 import { universalStatus, gameBoard } from "./main.js";
 import { snakeStatus, restartSnake, drawSnakeBodyOn as drawSnakeOn } from "./snake.js";
 import { generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
-import { generateObstaclesFor } from "./obstacle.js";
+import { drawObstacleOn, generateObstaclesFor } from "./obstacle.js";
 
 //game variables
 export let gameStatus = "resume";
@@ -65,10 +65,13 @@ function snakeDifficultyChange (difficulty) {
         gameDifficulty = "easy"
         removeSelectedFrom("difficulty");
         easyButton.classList.add("selected");
+        gameBoard.innerHTML = ""
         restartSnake();
+        drawSnakeOn(gameBoard);
         generatePointBox();
         drawPointOn(gameBoard);
         generateObstaclesFor(gameDifficulty);
+        drawObstacleOn(gameBoard);
       }
       break;
     case "medium":
@@ -76,10 +79,13 @@ function snakeDifficultyChange (difficulty) {
         gameDifficulty = "medium"
         removeSelectedFrom("difficulty");
         mediumButton.classList.add("selected");
+        gameBoard.innerHTML = ""
         restartSnake();
+        drawSnakeOn(gameBoard);
         generatePointBox();
         drawPointOn(gameBoard);
         generateObstaclesFor(gameDifficulty);
+        drawObstacleOn(gameBoard);
       }
       break;
     case "hard":
@@ -87,10 +93,13 @@ function snakeDifficultyChange (difficulty) {
         gameDifficulty = "hard"
         removeSelectedFrom("difficulty");
         hardButton.classList.add("selected");
+        gameBoard.innerHTML = ""
         restartSnake();
+        drawSnakeOn(gameBoard);
         generatePointBox();
         drawPointOn(gameBoard);
         generateObstaclesFor(gameDifficulty);
+        drawObstacleOn(gameBoard);
       }
       break;
   }
