@@ -1,5 +1,3 @@
-import { snakeBody } from "./snake";
-
 export let obstacles = [];
 
 export function generateObstaclesFor (difficulty) {
@@ -90,7 +88,6 @@ export function generateObstaclesFor (difficulty) {
       {x: 38, y: 40},
       {x: 39, y: 40},
     ];
-
   } else if (difficulty === "hard") {
     obstacles = [];
   } else {
