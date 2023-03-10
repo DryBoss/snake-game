@@ -129,6 +129,30 @@ h1 {
   grid-column-start: 2;
 }
 
+.play img {
+  content: url("https://img.icons8.com/ios-filled/50/A4A4A6/play--v1.png");
+}
+
+.play:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/play--v1.png");
+}
+
+.pause img {
+  content: url("https://img.icons8.com/ios-filled/50/A4A4A6/pause--v1.png");
+}
+
+.pause:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/pause--v1.png");
+}
+
+.reset img {
+  content: url("https://img.icons8.com/ios-filled/50/A4A4A6/restart--v1.png");
+}
+
+.reset:hover img {
+  content: url("https://img.icons8.com/ios-filled/50/2BD988/restart--v1.png");
+}
+
 button img {
   width: 80%;
 }

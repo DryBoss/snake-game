@@ -11,7 +11,7 @@ const leftButton = document.querySelector("#left");
 const upButton = document.querySelector("#up");
 export const rightButton = document.querySelector("#right");
 const downButton = document.querySelector("#down");
-const playButton = document.querySelector("#play");
+export const playButton = document.querySelector("#play");
 const allControlButtons = document.querySelectorAll(".control button");
 const allDifficultyButtons = document.querySelectorAll(".difficulty button");
 
@@ -85,10 +85,16 @@ function snakeDirectionChange (direction) {
 function gameStatusChange () {
   if (universalStatus === "resumed") {
     gameStatus = "pause"
+    playButton.classList.add("play");
+    playButton.classList.remove("pause");
   } else if (universalStatus === "paused") {
     gameStatus = "resume"
+    playButton.classList.add("pause");
+    playButton.classList.remove("play");
   } else {
     gameStatus = "resume"
+    playButton.classList.add("pause");
+    playButton.classList.remove("reset");
     restartSnake();
     snakeDirection = "right"
     removeSelectedFrom("control");
@@ -103,12 +109,12 @@ function gameStatusChange () {
 export function removeSelectedFrom (type) {
   if (type === "control") {
     allControlButtons.forEach((button) => {
-     button.classList.remove("selected");
+    button.classList.remove("selected");
     }); 
   } else {
     allDifficultyButtons.forEach((button) => {
-      button.classList.remove("selected");
-     }); 
+    button.classList.remove("selected");
+    }); 
   }
 }
 

@@ -1,5 +1,6 @@
 import { gameBoard } from "./main.js"
 import { pointPosition, generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
+import { playButton } from "./control.js"
 
 //game variables
 export let snakeStatus = "alive";
@@ -72,6 +73,8 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
     )
   ) {
     snakeStatus = "dead"
+    playButton.classList.add("reset");
+    playButton.classList.remove("pause");
   }
 }
 
