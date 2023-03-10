@@ -1,6 +1,7 @@
 import { gameBoard } from "./main.js"
 import { pointPosition, generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
 import { playButton, gameDifficulty } from "./control.js"
+import { obstacles } from "./obstacle.js";
 
 //game variables
 export let snakeStatus = "alive";
@@ -55,8 +56,9 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
     snakeBody.push({ ...snakeBody[snakeBody.length - 1]})
   }
 
-  //checking head if it has touched it self or the box. if yes, game over
+  //checking head if it has touched it self or the box or any obstacle. if yes, game over
   if (
+
     //checking for box touch
     snakeBody[0].x < 1 ||
     snakeBody[0].x > 51 ||
@@ -70,25 +72,18 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
           return snakeBody[0].x === bodyPart.x && snakeBody[0].y === bodyPart.y
         }
       })
+    ) ||
+
+    //checking for obstacle touch
+    (
+      obstacles.some((obstacle) => {
+        return snakeBody[0].x === obstacle.x && snakeBody[0].y === obstacle.y
+    })
     )
   ) {
     snakeStatus = "dead"
     playButton.classList.add("reset");
     playButton.classList.remove("pause");
-  }
-
-  //checking head if it has touched any obstacles. if yes, game over
-  if (
-    (
-      gameDifficulty === "medium" &&
-      (
-        true
-      )
-    ) || (
-      gameDifficulty === "hard"
-    )
-  ) {
-    
   }
 }
 

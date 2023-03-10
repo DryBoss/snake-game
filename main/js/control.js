@@ -72,6 +72,9 @@ function snakeDifficultyChange (difficulty) {
         drawPointOn(gameBoard);
         generateObstaclesFor(gameDifficulty);
         drawObstacleOn(gameBoard);
+        snakeDirection = "right";
+        removeSelectedFrom("control");
+        rightButton.classList.add("selected");
       }
       break;
     case "medium":
@@ -86,6 +89,9 @@ function snakeDifficultyChange (difficulty) {
         drawPointOn(gameBoard);
         generateObstaclesFor(gameDifficulty);
         drawObstacleOn(gameBoard);
+        snakeDirection = "right";
+        removeSelectedFrom("control");
+        rightButton.classList.add("selected");
       }
       break;
     case "hard":
@@ -100,6 +106,9 @@ function snakeDifficultyChange (difficulty) {
         drawPointOn(gameBoard);
         generateObstaclesFor(gameDifficulty);
         drawObstacleOn(gameBoard);
+        snakeDirection = "right";
+        removeSelectedFrom("control");
+        rightButton.classList.add("selected");
       }
       break;
   }
