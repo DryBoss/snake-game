@@ -8,11 +8,11 @@ export const gameBoard = document.querySelector(".game-board");
 
 //game variables
 export let universalStatus = "pause";
-let snakeSpeed = 5;
+let snakeSpeed = 10;
 
 //default
-generatePointBox();
 drawSnakeOn(gameBoard);
+generatePointBox();
 drawPointOn(gameBoard);
 easyButton.classList.add("selected");
 rightButton.classList.add("selected");

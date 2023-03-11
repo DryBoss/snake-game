@@ -5,27 +5,21 @@ export let pointPosition;
 
 export function generatePointBox () {
   //generating new position
-  pointPosition = { 
-    x: Math.floor(Math.random() * 51) + 1,
-    y: Math.floor(Math.random() * 51) + 1
-  }
-  
-  //generating position again incase it generated inside snake body or obstacle
-  while (
-    //checking for snake body
-    snakeBody.some(bodyPart => {
-      pointPosition.x === bodyPart.x && pointPosition.y === bodyPart.y
-    }) ||
-    //checking for obstacle
-    obstacles.some(obstacle => {
-      pointPosition.x === obstacle.x && pointPosition.y === obstacle.y
-    })
-  ) {
+  do {
     pointPosition = { 
       x: Math.floor(Math.random() * 51) + 1,
       y: Math.floor(Math.random() * 51) + 1
     }
-  }  
+  } while (
+    //checking for snake body
+    snakeBody.some(bodyPart => {
+      return pointPosition.x == bodyPart.x && pointPosition.y == bodyPart.y
+    }) ||
+    //checking for obstacle
+    obstacles.some(obstacle => {
+      return pointPosition.x == obstacle.x && pointPosition.y == obstacle.y
+    })
+  )
 }
 
 export function drawPointBoxOn (gameBoard) {
