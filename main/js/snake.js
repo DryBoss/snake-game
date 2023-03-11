@@ -1,6 +1,6 @@
 import { gameBoard } from "./main.js"
 import { pointPosition, generatePointBox, drawPointBoxOn as drawPointOn } from "./point.js"
-import { playButton, gameDifficulty } from "./control.js"
+import { playButton, gameDifficulty, gameStatusChange } from "./control.js"
 import { obstacles } from "./obstacle.js";
 
 //game variables
@@ -21,7 +21,18 @@ if (localStorage.getItem("highScore")) {
   localStorage.setItem("highScore", 0);
 }
 
+//death menu
+const deathMenu = document.querySelector(".death-menu");
+const deathMessage = document.querySelector("#death-message");
+export const deathMenuPlayAgain = document.querySelector(".death-menu button");
+
+deathMenuPlayAgain.addEventListener('click', () => gameStatusChange());
+
+let deathMessageGenarated = "keep trying!";
+
 export function restartSnake() {
+  deathMenu.style.display = "none";
+
   score = 0;
   showScore.innerHTML = score;
 
@@ -62,7 +73,13 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
 
   //checking head if it has consumed any point box. if yes, generating new point & expanding snake body
   if (snakeBody[0].x === pointPosition.x && snakeBody[0].y === pointPosition.y) {
-    score++;
+    if (gameDifficulty === "easy") {
+      score++;
+    } else if (gameDifficulty === "medium") {
+      score += 2
+    } else {
+      score += 4
+    }
     showScore.innerHTML = score;
     if (score > localStorage.getItem("highScore")) {
       showHighScore.innerHTML = score;
@@ -102,6 +119,21 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
     )
   ) {
     snakeStatus = "dead"
+
+    if (score < 10){
+      deathMessageGenarated = "you suck!"
+    } else if (score <= localStorage.getItem("highScore")/2) {
+      deathMessageGenarated = "keep trying!"
+    } else if (score == localStorage.getItem("highScore")) {
+      deathMessageGenarated = "you are the best!"
+    } else if (score > localStorage.getItem("highScore")/2) {
+      deathMessageGenarated = "you got this!"
+    }
+
+    deathMessage.innerHTML = deathMessageGenarated + "<br><span>" + score + "</span>"
+    deathMenu.style.display = "block";
+
+
     playButton.classList.add("reset");
     playButton.classList.remove("pause");
   }

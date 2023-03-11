@@ -149,7 +149,7 @@ function snakeDirectionChange (direction) {
 }
 
 //game status change function
-function gameStatusChange () {
+export function gameStatusChange () {
   if (universalStatus === "resumed") {
     gameStatus = "pause"
     playButton.classList.add("play");
