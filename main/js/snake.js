@@ -11,7 +11,20 @@ export let snakeBody = [
   {x: 24, y: 26}
 ]
 
+//score variables
+let score = 0;
+const showScore = document.querySelector("#score span");
+const showHighScore = document.querySelector("#high-score span");
+if (localStorage.getItem("highScore")) {
+  showHighScore.innerHTML = localStorage.getItem("highScore");
+} else {
+  localStorage.setItem("highScore", 0);
+}
+
 export function restartSnake() {
+  score = 0;
+  showScore.innerHTML = score;
+
   snakeStatus = "alive";
   snakeBody = [
     {x: 26, y: 26},
@@ -49,6 +62,13 @@ export function updateSnakeBodyParts (snakeMovementDirection) {
 
   //checking head if it has consumed any point box. if yes, generating new point & expanding snake body
   if (snakeBody[0].x === pointPosition.x && snakeBody[0].y === pointPosition.y) {
+    score++;
+    showScore.innerHTML = score;
+    if (score > localStorage.getItem("highScore")) {
+      showHighScore.innerHTML = score;
+      localStorage.setItem("highScore", score);
+    }
+
     generatePointBox();
     drawPointOn(gameBoard);
 
